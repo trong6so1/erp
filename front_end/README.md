@@ -1,87 +1,95 @@
-# Welcome to React Router!
-
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+# Metronic 9 | All-in-One Tailwind based HTML/React/Next.js Template for Modern Web Applications
 
 ## Getting Started
 
+Refer to the [Metronic Vite Documentation](https://docs.keenthemes.com/metronic-react)
+for comprehensive guidance on setting up and getting started your project with Metronic.
+
+## ReUI Components
+
+Metronic now leverages [ReUI](https://reui.io), our open-source React component library.
+
+Star the [ReUI on GitHub](https://github.com/keenthemes/reui) to help us grow the project and stay updated on new features!
+
+## Login with Supabase Auth
+
+This project uses Supabase for authentication. Follow these steps to set up and test the login functionality:
+
+### Prerequisites
+
+- Node.js 16.x or higher
+- Npm or Yarn
+- Tailwind CSS 4.x
+- React 19.x
+- A Supabase account and project
+
 ### Installation
 
-Install the dependencies:
+To set up the project dependencies, including those required for React 19, use the `--force` flag to resolve any dependency conflicts:
 
 ```bash
-npm install
+npm install --force
 ```
+
+### Environment Setup
+
+1. Make sure your `.env` file is configured with Supabase credentials:
+
+```
+
+VITE_SUPABASE_URL=https://your-project-url.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
+VITE_SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-for-admin-functions
+
+```
+
+### Creating a Demo User
+
+For testing purposes, you can create a demo user with:
+
+```bash
+npm run create-demo-user
+```
+
+This will create a user with the following credentials:
+
+- Email: demo@kt.com
+- Password: demo123
+
+### Login Features
+
+The login implementation includes:
+
+- Email/Password authentication
+- Google OAuth integration
+- Password reset flow
+- Error handling
+- Token management
+- Protected routes
+
+### Setting Up the Demo Layout
+
+Follow the [Metronic Vite Documentation](https://docs.keenthemes.com/metronic-vite/guides/layouts) to configure and use the demo layout of your choice.
 
 ### Development
 
-Start the development server with HMR:
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+Visit `http://localhost:5173/auth/signin` to test the login functionality.
 
-## Building for Production
+### Testing Login
 
-Create a production build:
+You can test login using:
 
-```bash
-npm run build
-```
+1. The demo account credentials
+2. Register a new account (when implemented)
+3. Google Sign-in (requires proper OAuth setup in Supabase)
 
-## Deployment
+### Reporting Issues
 
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+If you encounter any issues or have suggestions for improvement, please contact us at [support@keenthemes.com](mailto:support@keenthemes.com).
+Include a detailed description of the issue or suggestion, and we will work to address it in the next stable release.
