@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./back_end
+    container_name: erp_backend
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/erp_db
+    depends_on:
+      - db
+    networks:
+      - erp-network
+
+  frontend:
+    build:
+      context: ./front_end
+    container_name: erp_frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - erp-network
+
+  db:
+    image: postgres:15
+    container_name: erp_db
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: user
+      POSTGRES_DB: erp_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - erp-network
+
+volumes:
+  pgdata:
+
+networks:
+  erp-network:
+    driver: bridge
