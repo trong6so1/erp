@@ -1,23 +1,18 @@
-# Stage 1: Build
-FROM node:20-alpine AS builder
-
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm install
-
-COPY . .
-RUN npm run build
-
-# Stage 2: Run
 FROM node:20-alpine
 
 WORKDIR /app
 
-COPY --from=builder /app/package*.json ./
-COPY --from=builder /app/dist ./dist
-RUN npm install --only=production
+# Copy package.json và package-lock.json (nếu có)
+COPY package*.json ./
 
+# Cài dependencies (dev + prod)
+RUN npm install
+
+# Copy toàn bộ source code
+COPY . .
+
+# Expose port (mặc định NestJS dùng 3000)
 EXPOSE 3000
 
-CMD ["node", "dist/main.js"]
+# Chạy app với watch mode dev, để thay đổi code tự reload
+CMD ["npm", "run", "start:dev"]
