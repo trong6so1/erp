@@ -6,7 +6,7 @@ services:
       context: ./back_end
     container_name: erp_backend
     ports:
-      - "5000:5000"
+      - "3000:3000"
     environment:
       - DATABASE_URL=postgres://postgres:postgres@db:5432/erp_db
     depends_on:
@@ -14,16 +14,16 @@ services:
     networks:
       - erp-network
 
-  frontend:
-    build:
-      context: ./front_end
-    container_name: erp_frontend
-    ports:
-      - "3000:3000"
-    depends_on:
-      - backend
-    networks:
-      - erp-network
+  # frontend:
+  #   build:
+  #     context: ./front_end
+  #   container_name: erp_frontend
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - backend
+  #   networks:
+  #     - erp-network
 
   db:
     image: postgres:15
