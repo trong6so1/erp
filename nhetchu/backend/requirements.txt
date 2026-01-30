@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+asyncpg
+greenlet
+alembic
+pydantic
+pydantic-settings
+redis
+celery
+beautifulsoup4
+playwright
+httpx
+python-multipart
+python-jose[cryptography]
+passlib[bcrypt]
