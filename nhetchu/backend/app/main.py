@@ -17,6 +17,8 @@ if settings.BACKEND_CORS_ORIGINS:
         allow_headers=["*"],
     )
 
+from app.api.api_v1.api import api_router
+
 @app.get("/")
 async def root():
     return {"message": "Welcome to Truyen Online API"}
@@ -24,3 +26,5 @@ async def root():
 @app.get("/health")
 async def health_check():
     return {"status": "ok"}
+
+app.include_router(api_router, prefix=settings.API_V1_STR)
